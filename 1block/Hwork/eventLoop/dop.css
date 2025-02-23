@@ -1,0 +1,155 @@
+/* :root {
+  --main-background: #fafafa;
+  --post-background: #ffffff;
+}
+
+body {
+  background: var(--main-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-height: 100vh;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+#post {
+  background: var(--post-background);
+  width: 65%;
+  height: 100%;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.post__title {
+  margin: 5px 0;
+}
+
+.post__comments-text {
+  margin-bottom: 10px;
+  border-bottom: 1px solid;
+  
+}
+
+.post__comments {
+  overflow: auto;
+}
+
+.post-comment {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.post-comment__author {
+  font-style: italic;
+} */
+
+/* Сброс базовых стилей и глобальные настройки */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  padding: 20px;
+}
+
+/* Стили для контейнера профиля пользователя */
+#user {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для блока с данными пользователя */
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-profile .name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.user-profile .email,
+.user-profile .city {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Стили для контейнера постов пользователя */
+.user-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Стили для каждого поста */
+.post {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка поста */
+.post__title {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #30a6a4;
+}
+
+/* Стили для текста поста */
+.post__text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #281919;
+}
+
+/* Дополнительные стили для комментариев (если используются) */
+.post-comment {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fafafa;
+  border-left: 3px solid #3498db;
+  border-radius: 4px;
+}
+
+.post-comment__author {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #34495e;
+}
+
+.post-comment__text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* Адаптивные стили для устройств с узким экраном */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  #user, .post {
+    padding: 15px;
+  }
+}

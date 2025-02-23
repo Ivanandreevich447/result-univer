@@ -126,7 +126,6 @@ getUsersByIds([5, 6, 2, 1, 9])
 // task2()
 
 
-
 /* задача 1.3 */
 
 function task3 () {
@@ -147,6 +146,7 @@ function getFastestLoadedPhoto(ids) {
         }
 
     const createElementPhoto =  (textImg, textSrc)=> {
+
         const listElement = document.createElement('li')
         listElement.classList = 'photo-item'
         
@@ -226,7 +226,7 @@ function task4() {
         }
 
     }
-    // createNewPost()
+    createNewPost()
 
 }
 // task4()
@@ -262,7 +262,7 @@ function task5( ) {
 
 }
 
-// task5()
+task5()
 
 
 
@@ -315,6 +315,4 @@ dataContainer.textContent = 'Произошла ошибка в получени
 
 renderAlbums()
 }
-task6()
-
-
+// task6()

@@ -385,38 +385,141 @@ parameters содержит объект с параметрами запрос�
      }  */ 
 
 
-const userUrl = 'https://jsonplaceholder.typicode.com/users'
-const todoUrl = 'https://jsonplaceholder.typicode.com/todos'
+// const userUrl = 'https://jsonplaceholder.typicode.com/users'
+// const todoUrl = 'https://jsonplaceholder.typicode.com/todos'
 
-    const getTodoWithUserData = async () => {
+//     const getTodoWithUserData = async () => {
 
-        try {
-            //вызов функции ассинхронный тут -фетч - получаем промисы
-               const respons = await fetch(userUrl) 
-                console.log(respons); 
+//         try {
+//             //вызов функции ассинхронный тут -фетч - получаем промисы
+//                const respons = await fetch(userUrl) 
+//                 console.log(respons); 
                 
-                // работаем с прошлой переменной и декодируем
-                const users =  await respons.json() 
-                console.log(users);
+//                 // работаем с прошлой переменной и декодируем
+//                 const users =  await respons.json() 
+//                 console.log(users);
 
-                //awaint не нужно тк не ассинхронный вызов
-                 const firstUserId = users[0]?.id 
+//                 //awaint не нужно тк не ассинхронный вызов
+//                  const firstUserId = users[0]?.id 
 
-                 //новый феч
-                const todosResponse = await fetch(`${todoUrl}?userId=${firstUserId}`)
-                const todos = await todosResponse.json()
-                console.log(todos);
+//                  //новый феч
+//                 const todosResponse = await fetch(`${todoUrl}?userId=${firstUserId}`)
+//                 const todos = await todosResponse.json()
+//                 console.log(todos);
             
-        } catch (error) {
-            console.log(error);
-        } finally {
-            console.log('finally');
-        }
+//         } catch (error) {
+//             console.log(error);
+//         } finally {
+//             console.log('finally');
+//         }
 
 
   
 
-} 
-getTodoWithUserData()
-// const promise = getTodoWithUserData()
-// console.log(promise);//промис
+// } 
+// getTodoWithUserData()
+// // const promise = getTodoWithUserData()
+// // console.log(promise);//промис
+
+
+
+
+
+//ЗАДАЧА С ГПТ РЕШИЛ НОРМ
+
+function task () {
+
+    function userData(name, email, city) {
+        const userProfile = document.createElement('div')
+        userProfile.classList.add('user-profile')
+        
+            const userName = document.createElement('h1')
+            userName.classList.add('name')
+            userName.textContent = name
+        
+            const userEmail = document.createElement('p')
+            userEmail.classList.add('email')
+            userEmail.textContent = email
+        
+            const userCity = document.createElement ('p')
+            userCity.classList.add('city')
+            userCity.textContent = city
+        
+            userProfile.append(userName, userEmail, userCity)
+            return userProfile
+        }
+        // userData()
+    
+        function createPostElement(title, text) {
+    
+            const postElement = document.createElement('li')
+            postElement.classList.add('post')
+    
+    
+            const postTitle = document.createElement('p')
+            postTitle.classList.add('post__title')
+            postTitle.textContent = title
+    
+            const postText = document.createElement('p')
+            postText.classList.add('post__text')
+            postText.textContent = text
+    
+            postElement.append(postTitle, postText)
+    
+            return postElement
+        }
+    
+    async function renderUserProfile(userId) {
+    
+    const user = document.querySelector('#user')
+    const userPosts = document.querySelector('.user-posts')
+    
+    
+        const urlUsers = 'https://jsonplaceholder.typicode.com/users'
+    
+        const requests = await fetch(`${urlUsers}/${userId}`)
+        console.log(requests);
+    
+    
+    try {
+        const response = await requests.json()
+        const userNameHtml = response.name
+        console.log(userNameHtml);
+        
+        const userEmailHtml = response.email
+        console.log(response.email);
+        
+        const userCityHtml = response.address.city
+        console.log(userCityHtml);
+        
+        const userProfileHtml = userData(userNameHtml, userEmailHtml, userCityHtml)
+        
+        user.insertAdjacentElement("afterbegin" ,userProfileHtml)
+        
+        
+            const requestsPost = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        console.log(requestsPost);
+        
+            const responsesPosts = await requestsPost.json()
+            console.log(responsesPosts);
+        
+            const responsePost =  responsesPosts.forEach((post) => {
+                // console.log(post.title);
+                const titleHtml = post.title
+                const bodyHtml = post.body
+                // console.log(post.body);
+                const postHtml = createPostElement(titleHtml, bodyHtml)
+        
+                userPosts.append(postHtml)
+        
+            })
+    } catch (error) {
+        console.log(error);
+    }
+        
+    
+        
+    }
+    renderUserProfile(1)
+}
+task()
