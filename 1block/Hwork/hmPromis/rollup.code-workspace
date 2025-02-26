@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../../rollup"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "rollup"
+	}
+}
