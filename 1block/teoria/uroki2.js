@@ -196,7 +196,7 @@
 
 
 //         // Определение класса - как писать
-// class имя {
+// class Имя {
 //     constructor(значениеСвойства) {
 //       this.названиеСвойства = значениеСвойства;
 //     }
@@ -208,7 +208,7 @@
 //   const obj = new Class(переданноеЗначение);
 
 
-// class animal {
+// class Animal {
 //     constructor(name) {
 //         this.name = name
 //     }
@@ -220,8 +220,8 @@
 
     //для создания объекта перед ФУНКЦИЕЙ ( ИЛИ КЛАССОМ) напистаь new
 
-// const cat = new animal('кот') // создаю объект animal- по названию функц(класса)
-// const dog = new animal('пес') //новый  объект
+// const cat = new Animal('кот') // создаю объект animal- по названию функц(класса)
+// const dog = new Animal('пес') //новый  объект
 
 // console.log(dog);
 // console.log(cat); //вызываю новый объект
