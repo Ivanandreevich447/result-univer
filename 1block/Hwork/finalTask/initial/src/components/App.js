@@ -35,10 +35,10 @@ export class App extends Component {
     this.$total
 
     //15 20
-    const donateForm = new Form();
-    this.$rootElement.appendChild(donateForm.$rootElement);
-    const donateList = new List();
-    this.$rootElement.appendChild(donateList.$rootElement);
+    // const donateForm = new Form();
+    // this.$rootElement.appendChild(donateForm.$rootElement);
+    // const donateList = new List();
+    // this.$rootElement.appendChild(donateList.$rootElement);
 
 
     
@@ -49,10 +49,10 @@ export class App extends Component {
 
 
 //15 20
-    // const donateForm = new Form({ onSubmit: this.onItemCreate.bind(this) });
-    // this.$rootElement.appendChild(donateForm.$rootElement);
-    // const donateList = new List({ onRemove: this.onItemRemove.bind(this) });
-    // this.$rootElement.appendChild(donateList.$rootElement);
+    const donateForm = new Form({ onSubmit: this.onItemCreate.bind(this) });
+    this.$rootElement.appendChild(donateForm.$rootElement);
+    const donateList = new List({ onRemove: this.onItemRemove.bind(this) });
+    this.$rootElement.appendChild(donateList.$rootElement);
   }
   
   onItemCreate(amount) {

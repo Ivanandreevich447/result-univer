@@ -73,10 +73,10 @@ this.$button.disabled = !this.isValid
   // this.form = new Form ({ onSubmit : this.onItemCreate })
 
 
-    // const donateForm = new Form({ onSubmit: this.onItemCreate.bind(this) });
-    // this.$rootElement.appendChild(donateForm.$rootElement);
-    // const donateList = new List({ onRemove: this.onItemRemove.bind(this) });
-    // this.$rootElement.appendChild(donateList.$rootElement);
+    const donateForm = new Form({ onSubmit: this.onItemCreate.bind(this) });
+    this.$rootElement.appendChild(donateForm.$rootElement);
+    const donateList = new List({ onRemove: this.onItemRemove.bind(this) });
+    this.$rootElement.appendChild(donateList.$rootElement);
   }
   
 
