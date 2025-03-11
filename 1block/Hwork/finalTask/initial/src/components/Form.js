@@ -3,9 +3,10 @@ import { Component } from '../core/Component';
 export class Form extends Component {
 
   setup(props) {
-this.state ={
+this.state = {
   amount : ''
 }
+console.log(typeof(amount));
 
     this.$rootElement = document.createElement('form');
     this.$rootElement.className = 'donate-form';
@@ -33,8 +34,6 @@ this.state ={
     this.$rootElement.appendChild($donateLabel)
     this.$rootElement.appendChild(this.$button)
     this.$rootElement.appendChild(this.$input)
-    // this.$rootElement.append($donateForm, $button, $this.$input)
-
 
     this.$input.addEventListener('input', this.handleInput.bind(this))
     this.$rootElement.addEventListener('submit', this.handleSubmit.bind(this))
@@ -45,11 +44,9 @@ this.state ={
 
   handleInput(event) {
 console.log(event.target.value);
-// console.log(this.isValid);
 
 this.state.amount = event.target.value
  
-//!this.isValid -обратное значение выходит так -угадал-раб
 this.$button.disabled = !this.isValid
   }
 
@@ -57,32 +54,19 @@ this.$button.disabled = !this.isValid
     event.preventDefault();
 
     if(this.isValid) {
-      console.log(this.state);
 
-      console.log(this.isValid);
-      
-//16-error
-      // this.props.onSubmit(Number(this.state.amount))
+      this.props.onSubmit (this.state.amount)
 
       console.log(this.$input.value);
       this.$input.value = ''
     }
 
-//15
-  //     this.onItemCreate = this.onItemCreate.bind(this)
-  // this.form = new Form ({ onSubmit : this.onItemCreate })
 
-
-    const donateForm = new Form({ onSubmit: this.onItemCreate.bind(this) });
-    this.$rootElement.appendChild(donateForm.$rootElement);
-    const donateList = new List({ onRemove: this.onItemRemove.bind(this) });
-    this.$rootElement.appendChild(donateList.$rootElement);
   }
   
 
   get isValid () {
-    const amount = Number(this.state.amount);
-
+    const amount = Number(this.$input.value);
     if(  amount >= 1 && amount <= 100) {
       return true
     } else {
