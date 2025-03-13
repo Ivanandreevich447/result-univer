@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../Hwork/finalTask/initial"
+		},
+		{
+			"path": "../Hwork/finalTask/task"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "initial"
+	}
+}

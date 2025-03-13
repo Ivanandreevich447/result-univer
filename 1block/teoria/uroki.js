@@ -1358,3 +1358,91 @@ replaceAll - МЕНЯЕТ ВСЕ ТАКИЕ ЗНАЧЕНИЯ НА ЭТО
 
 // const[{name}, hi, [, , a], b = "default"] = mixedData  //undefiend - принимает умолчание
 // console.log(name,hi, a, b);
+
+
+
+
+
+
+//ЗАДАЧА НА ВВОД ДОНАТА И ВЫВОД ДАТЫ С СУММОЙ ДОНАТОВ/ ПРИ ВВОДЕ 0 - ЦИКЛ ВВОДА ДОНАТОВ КОНЕЦ (сейчас 5 донатов)
+
+function task1 () {
+      class Donate  {
+            constructor(amount) {
+            this.amount = amount,
+            this.date = new Date().toLocaleString('ru-RU')
+            }
+            
+            
+            }
+            
+            
+            class DonationList {
+                  constructor() {
+                        this.donations = []
+                        this.total = 0
+            
+                  }
+            addDonation (amount) {
+            const donation = new Donate(amount)
+            
+            this.donations.push(donation)
+            
+            console.log(`Добавлен новый донат: ${donation.amount} (Дата : ${donation.date})`);
+            
+            this.total += donation.amount
+            
+            }
+            showAllDonations () {
+                  console.log('Все донаты :', this.donations);
+                  console.log('сумма', this.total);
+            
+            }
+            
+            }
+            
+            
+            class App  {
+                  constructor() {
+                        this.donationList  = new DonationList()
+                  }
+            
+                  start() {
+                  let amount
+                  for(let i = 0; i < 5; i++) {
+                       const inputAmount = (prompt(`введи донат(у тебя 5 донатов)`))
+                       if (inputAmount === null ) break;
+            
+                        amount = Number(inputAmount)
+            
+                        if(amount === 0) break
+                       if(!isNaN(amount) && amount > 0) {
+                        this.donationList.addDonation(amount)
+                       } else {
+                        console.log(`не верно ты донмат прописал`);
+                       }
+            
+            
+                  }
+            this.donationList.showAllDonations()
+            
+            
+            
+            
+                        // const amount = Number(prompt("Введите сумму доната:")); // Преобразуем строку в число
+                        // if (!isNaN(amount) && amount > 0) {
+                        //   this.donationList.addDonation(amount);
+                        //   this.donationList.showAllDonations();
+                        // } else {
+                        //   console.log("Некорректное значение! Попробуйте снова.");
+                        // }
+            
+                  }
+            }
+            const app = new App()
+            app.start()
+
+}
+
+// task1()
+

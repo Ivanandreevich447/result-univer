@@ -1,1 +1,0 @@
-export const JSCreationDate = new Date(1995, 0 ,1)
