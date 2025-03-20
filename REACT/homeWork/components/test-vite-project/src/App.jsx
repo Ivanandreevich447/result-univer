@@ -23,7 +23,7 @@ if(!promptValue || promptValue.length < 3) {
 	const onAddButtonClick = () => {
 		if(value.trim().length >= 3) {
 			const newItem = {id: Date.now(), value}
-			
+
 			const updatedList = [...list, newItem]
 			setList(updatedList)
 
@@ -55,6 +55,7 @@ if(!promptValue || promptValue.length < 3) {
 		  {/* чтоб тру получить- надо сравнить по длинне массив list!! */}
 		  <p className={styles['no-margin-text']}> {list.length === 0 ? 'Нет добавленных элементов' : null}  </p>
 		  <ul className={styles.list}>
+			
 			{list.map((item) => (
 			<li key={item.id} className={styles["list-item"]}> значение : {item.value},<br/>
 			время создания : {DataNew}</li>
