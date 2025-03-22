@@ -1,0 +1,74 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+	background-color: rgb(180, 130, 231);
+	font-weight: bold;
+}
+
+.container {
+	margin: 0 auto;
+	width: 300px;
+	height: 500px;
+	background: rgb(11, 11, 11);
+	border-radius: 20px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	border: 3px solid rgb(41, 39, 39);
+	align-items: center;
+	box-shadow: 5px 5px 10px 0px rebeccapurple;
+}
+
+.displayInput {
+	width: 100%;
+	height: 100px;
+	padding: 10px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+	font-size: 27px;
+	text-align: right;
+	border: 2px solid rgb(175, 171, 171);
+	border-radius: 20px;
+	/* display: flex; */
+	color: white;
+}
+
+/* задам display: flex;
+	flex: 1; а в отдельных так же, но цифру- на сколько делать место частей */
+
+.buttons {
+	display: flex;
+	/* flex: 1; */
+	text-align: center;
+	border: 2px solid rgb(180, 177, 177);
+	border-radius: 10px;
+}
+
+.operator {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	gap: 10px;
+}
+
+.btnNums {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 3;
+	gap: 10px;
+}
+
+.btn {
+	box-shadow: 5px 5px 112px 0px rgb(157, 102, 212);
+	gap: 10px;
+	width: 65px;
+	height: 65px;
+	font-size: 23px;
+	border: 1px solid black;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+.btnOrange {
+	background-color: rgb(220, 151, 21);
+}

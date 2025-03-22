@@ -17,7 +17,7 @@ const PostItem = (props) => {
         </div>
         <div className="post__btns">
 
-            {/* вешаю слушатель событий - при наджатии на кнопку
+            {/* вешаю слушатель событий - при нажатии на кнопку
             у  props.post - будет ид - и по нему пост будет удален */}
           <MyButton onClick={() => props.remove(props.post)} >Удалить</MyButton>
         </div>
