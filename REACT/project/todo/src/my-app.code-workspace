@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../../teoria/project/my-app"
+		},
+		{
+			"path": "../../react-project-youtube"
+		},
+		{
+			"path": "../../homeWork"
+		},
+		{
+			"path": "../../teoria"
+		},
+		{
+			"path": "../../homeWork/components/calculator"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}

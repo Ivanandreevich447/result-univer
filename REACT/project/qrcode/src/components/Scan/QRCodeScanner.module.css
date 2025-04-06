@@ -1,0 +1,39 @@
+.textContent {
+  max-width: 600px;
+  margin-top: 30px;
+  border: 2px solid #d1dce5;
+  box-shadow: 3px 3px 4px rgba(61, 105, 16, 0.5);
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  flex-grow: 1; /* Текст занимает всё доступное пространство */
+  overflow: hidden; /* Скрываем переполнение */
+  white-space: nowrap; /* Запрещаем перенос строк */
+  text-overflow: ellipsis; /* Добавляем многоточие, если текст не умещается */
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.scan {
+  /* Текст занимает всё доступное место */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* .qr{  border: 2px solid #d1dce5;
+    box-shadow: 3px 3px 4px rgba(61, 105, 16, 0.5);
+  
+    padding: 5px;
+    border-radius: 8px;
+    background: #fff;} */
