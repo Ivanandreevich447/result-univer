@@ -1,0 +1,13 @@
+
+.container {
+display: grid;
+place-items: center;
+
+	justify-content: start;
+	text-align: center;
+	max-width: 950px;
+	margin: 0 auto;
+
+
+}
+
