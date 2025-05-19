@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../components"
+		},
+		{
+			"path": "../../project/react-project-youtube"
+		}
+	],
+	"settings": {}
+}

@@ -1,11 +1,44 @@
 import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import styles from "./FormikYup.module.css";
-import fieldsScheme from './scheme/fieldsScheme'
+import styles from "./FormikYup.module.css/";
 
 const InputFormik = () => {
+	const fieldsScheme = yup.object().shape({
+		login: yup
+			.string()
+			.matches(
+				/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i,
+				"неверный логин"
+			) //регулярка
+			.max(20, "должно быть не больше 20 символов")
+			.min(3, "не верно, введи больше 3х символов")
+			.required("обязательное поле"), // указывает на обязательное поле в форме
 
+		password: yup
+			.string()
+			.max(20, "должно быть не больше 20 символов")
+			.min(5, "не верно, введи больше 5 символов")
+			.matches(
+				/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/,
+				"пароль должен содержать буквы и цифры"
+			)
+			.required("обязательное поле"),
+
+		repeatPassword: yup
+			.string()
+			.max(20, "неверный логин, должно быть не больше 20 символов")
+			.min(5, "не верно, введи больше 5 символов")
+			.matches(
+				/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/,
+				"пароль должен содержать буквы и цифры"
+			)
+			.required("повторите пароль")
+			//чек на совпадение пароля/ .oneOf() - хотя бы 1поле совпадает с этим
+			//для того,что пароль сравнить я и делал метод watch
+			.oneOf([yup.ref("password")], "пароли не совпадают"),
+	});
 
 	const {
 		//возращает хук
@@ -17,13 +50,13 @@ const InputFormik = () => {
 		formState: { errors, isValid }, //сразу извлекаю ошибки и проверка всей формы на валидность
 	} = useForm({
 		mode: "onBlur", // валидация начнется при уходе с поля
-		reValidateMode: "onChange",
+		reValidateMode: "onChange", //С НИМ СТАЛИ ОШИБКИ СРАЗУ ВЫХОДИТЬ ПРИ ВВОДЕ!
 		//передаю начальное поле логина -пустое
 		defaultValues: {
 			login: "",
 			password: "",
 			repeatPassword: "",
-		}, //в формике использую так yup схему
+		},
 		resolver: yupResolver(fieldsScheme),
 	});
 
@@ -38,6 +71,11 @@ const InputFormik = () => {
 		}
 	}, [password, repeatPassword, trigger]);
 
+	//вешаю обработчик и в нем чисто сброс полей пока будет через метод resetField
+	// 	const handleClick = () =>
+	// {resetField('repeatPassword')
+	// resetField('password')
+	// resetField('login')}
 
 	//ошибки полей
 	const loginError = errors.login?.message;
@@ -49,7 +87,9 @@ const InputFormik = () => {
 		console.log(FormData);
 		console.log(isValid);
 		reset();
-
+		// {resetField('repeatPassword')
+		// 	resetField('password')
+		// 	resetField('login')}
 	};
 
 	//useRef - для фокуса и useEffect
@@ -68,8 +108,8 @@ const InputFormik = () => {
 
 	return (
 		<div className={styles.container}>
-			<p className={styles.reg}>Регистрация</p>
-
+			<p>{password}</p>
+			<p>{repeatPassword}</p>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				{loginError && <div className={styles.error}>{loginError}</div>}
 				<input
@@ -92,7 +132,7 @@ const InputFormik = () => {
 
 				<input
 					className={`${styles.input} ${
-						passwordError
+						loginError
 							? styles.inputError
 							: isValid
 							? styles.inputSuccess

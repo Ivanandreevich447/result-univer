@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+	  "target": "ES6",
+	  "module": "commonjs",
+	  "outDir": "./dist",
+	  "rootDir": "./",
+	  "strict": true,
+	  "esModuleInterop": true
+	},
+	"include": ["*.ts", "ts/enum.ts", "ts/fnc.ts", "ts/main.ts", "ts/Generic.ts", "ts/object.ts", "ts/TypesUtility.ts", "ts/typeAssertion.ts", "ts/typeInterface.ts"]
+  }
